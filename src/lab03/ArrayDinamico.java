@@ -15,13 +15,12 @@ public class ArrayDinamico {
 		return totalUsado;
 	}
 	
-	public String getInfo(String nome){
+	public String getInformacoesDoProduto(String nome){
 		int indice = getIndice(nome);
-		return estoque[indice].toString();
+		return estoque[indice].getDadosDoProduto();
 	}
 	
 	private int getIndice(String nome){
-		nome = nome.toLowerCase();
 		
 		for(int i = 0 ; i < totalUsado; i++){
 			if(estoque[i].getNome().equalsIgnoreCase(nome)){
@@ -31,7 +30,7 @@ public class ArrayDinamico {
 		return -1; //caso nao exista o produto com esse nome
 	}
 	
-	public int getQuantidade(String nome){
+	public int getQuantidadeDoProduto(String nome){
 		int indice = getIndice(nome);
 		return estoque[indice].getQuantidade();
 	}
@@ -52,12 +51,12 @@ public class ArrayDinamico {
 	
 	public void adcionaElemento(String nome, double preco, String tipo , int quantidadeParaAdcionar){
 		
-		if(getIndice(nome) != -1){ //Produto ja cadastrado, basta atualizar as informacoes
-			int indice = getIndice(nome);
-			int quantidadeAnterior = estoque[indice].getQuantidade();
-			estoque[indice] = new Produto(nome,tipo,preco,quantidadeAnterior + quantidadeParaAdcionar);
+		int indiceDoProduto = getIndice(nome);
+		
+		if(indiceDoProduto != -1){ //Produto ja cadastrado, basta atualizar as informacoes
+			int quantidadeAnterior = estoque[indiceDoProduto].getQuantidade();
+			estoque[indiceDoProduto] = new Produto(nome,tipo,preco,quantidadeAnterior + quantidadeParaAdcionar);
 			return;
-			
 		}
 		
 		else if(totalUsado >= estoque.length - 1){
@@ -79,28 +78,27 @@ public class ArrayDinamico {
 	
 	public void diminuiQuantidade(String nome,int quantidadeParaTirar){
 	
-		int indice = getIndice(nome);
-		int quantidadeAtual = estoque[indice].getQuantidade();
-		estoque[indice].setQuantidade(quantidadeAtual - quantidadeParaTirar);
+		int indiceDoProduto = getIndice(nome);
+		int quantidadeAtual = estoque[indiceDoProduto].getQuantidade();
+		estoque[indiceDoProduto].setQuantidade(quantidadeAtual - quantidadeParaTirar);
 		
 	}
 	
-	public double getPreco(String nome){
+	public double getPrecoDoProduto(String nome){
 	
-		int indice = getIndice(nome);
-		return estoque[indice].getPreco();
+		int indiceDoProduto = getIndice(nome);
+		return estoque[indiceDoProduto].getPreco();
 		
 	}
 
-	@Override
-	public String toString(){
+	public String getTodosElementos(){
 		
 		String fatura = "";
 		
 		double totalPossivel = 0;
 		
 		for(int i = 0 ; i < tamanho() ; i++){
-			fatura += (i + 1) + ") " + estoque[i].toString();
+			fatura += (i + 1) + ") " + estoque[i].getDadosDoProduto();
 			totalPossivel += estoque[i].getPreco() * estoque[i].getQuantidade();
 		}
 		

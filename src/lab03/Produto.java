@@ -46,9 +46,8 @@ public class Produto {
 		return this.quantidade;
 	}
 	
-	@Override
-	public String toString() {
-		return this.nome + "(" + this.tipo + "). R$" + Double.toString(this.preco) + " Restante: " + Integer.toString(this.quantidade) + "\n";
+	public String getDadosDoProduto() {
+		return this.nome + "(" + this.tipo + "). R$" + Double.toString(this.preco) + " Restante: " + this.quantidade + "\n";
 	}
 	
 	@Override

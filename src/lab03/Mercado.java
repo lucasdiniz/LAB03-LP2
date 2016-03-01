@@ -16,11 +16,11 @@ public class Mercado {
 	}
 	
 	public String informacoesDoProduto(String nome){
-		return estoque.getInfo(nome);
+		return estoque.getInformacoesDoProduto(nome);
 	}
 	
 	public boolean existeSuficiente(String nome,int quantidadeDesejada){
-		if(estoque.getQuantidade(nome) < quantidadeDesejada){
+		if(estoque.getQuantidadeDoProduto(nome) < quantidadeDesejada){
 			return false;
 		}
 		else{
@@ -34,15 +34,15 @@ public class Mercado {
 	
 	public double realizarVenda(String nome , int quantidade){	
 		estoque.diminuiQuantidade(nome,quantidade);
-		double precoDaVenda = estoque.getPreco(nome) * quantidade;
+		double precoDaVenda = estoque.getPrecoDoProduto(nome) * quantidade;
 		totalVendido += precoDaVenda;
 		return precoDaVenda;
 	}
 	
 	public String balanco(){
 		return "= = = = Impressao de Balanco = = = =\n\nProdutos cadastrados:\n"
-				+ estoque.toString() +
-				"Total arrecado em vendas: R$ " + Double.toString(totalVendido) + "\n";
+				+ estoque.getTodosElementos() +
+				"Total arrecado em vendas: R$ " + totalVendido + "\n";
 	}
 	
 
