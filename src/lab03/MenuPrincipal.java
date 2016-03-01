@@ -34,7 +34,7 @@ public class MenuPrincipal {
 		
 		do{
 
-			String nome = leString("= = = = Cadastro de Produtos = = = =\nDigite o nome do produto:");
+			String nome = leString("= = = = Cadastro de Produtos = = = =\n\nDigite o nome do produto:");
 			
 			double preco = leDouble("Digite o preco unitario do produto:");
 			
@@ -46,7 +46,7 @@ public class MenuPrincipal {
 			
 			System.out.println(quantidade + " " + nome + "(s) cadastrado(s) com sucesso!");
 			
-			cadastrarOutro = leString("Deseja cadastrar outro produto? (Sim/Nao)");
+			cadastrarOutro = leString("\nDeseja cadastrar outro produto? (Sim/Nao)");
 			
 		}while(cadastrarOutro.equalsIgnoreCase("sim"));
 	}
@@ -57,11 +57,11 @@ public class MenuPrincipal {
 		
 		do{
 		
-			String nome = leString("= = = = Venda de Produtos = = = =\nDigite o nome do produto:");
+			String nome = leString("= = = = Venda de Produtos = = = =\n\nDigite o nome do produto:");
 			
 			if(mercado.existeProduto(nome)){
 				String informacoes = mercado.informacoesDoProduto(nome);
-				System.out.println("===> " + informacoes);
+				System.out.println("\n===> " + informacoes);
 			}
 			
 			if(!mercado.existeProduto(nome)){
@@ -104,7 +104,7 @@ public class MenuPrincipal {
 		
 		while(!finalizar){
 			
-			int opcao = leInteiro("Digite a opcao desejada:\n1 ­ Cadastrar um Produto\n2 ­ Vender um Produto\n3 ­ Imprimir Balanco\n4 ­ Sair\n\nOpcao:");
+			int opcao = leInteiro("Digite a opcao desejada:\n\n1 ­ Cadastrar um Produto\n2 ­ Vender um Produto\n3 ­ Imprimir Balanco\n4 ­ Sair\n\nOpcao:");
 		
 			switch(opcao){
 			

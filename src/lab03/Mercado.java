@@ -40,7 +40,7 @@ public class Mercado {
 	}
 	
 	public String balanco(){
-		return "= = = = Impressao de Balanco = = = =\n\nProdutos cadastrados:\n"
+		return "= = = = Impressao de Balanco = = = =\n\nProdutos cadastrados:\n\n"
 				+ estoque.getTodosElementos() +
 				"Total arrecado em vendas: R$ " + totalVendido + "\n";
 	}

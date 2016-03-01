@@ -102,7 +102,7 @@ public class ArrayDinamico {
 			totalPossivel += estoque[i].getPreco() * estoque[i].getQuantidade();
 		}
 		
-		fatura += "Total que ainda pode ser arrecado: R$ " + totalPossivel + "\n";
+		fatura += "\nTotal que ainda pode ser arrecado: R$ " + totalPossivel + "\n";
 		return fatura;
 	}
 
